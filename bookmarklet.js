@@ -2,19 +2,31 @@
 
 //set background
 document.body.style.backgroundColor = "#DADADA"; //set backup color (in case image doesn't load)
-//need to get this image hosted on a server that supports https to fix possiblesecurity issues...
+//need to get this image hosted on a server that supports https to fix possible security issues...
 document.body.style.backgroundImage = "url('http://bradjasper.com/subtle-patterns-bookmarklet/patterns/squairy_light.png')"; //set actual image
 //ar c = document.getElementsByClassName("row part-content")[0].children;
 
 
-//set all 'panels' (areas with the book text in Wattpad) to have a gray background
+//give text content areas a gray background
+//supported on Wikipedia and Wattpadd
 //See comment at head of this page (relating to <Article> tags)
+
 var i; //create dummy variable i, duh.
-var c = document.getElementsByClassName("panel"); //get all panel elements and create variable
+var c; //create var c ahead of time
+
+//set all 'panels' (areas with the book text in Wattpad) to have a gray background
+c = document.getElementsByClassName("panel"); //get all panel elements and create variable
 for (i = 0; i < c.length; i++) { //apply to all elements
         c[i].style.background = "#D0DAE3"; //set to gray
     }
-  
+    
+//make content area gray (for wikipedia)
+//needs to select child elements, too for homepage but I don't feel like it right now.
+c = document.getElementsByClassName("mw-body"); //get the article content
+for (i = 0; i < c.length; i++) { //just in case there is more than one "mw-body", apply to all elements with that class rather than just [0]
+        c[i].style.background = "#D0DAE3"; //set to gray
+    }
+
 //function that allows to add rules to CSS using js
 function addCSSRule(sheet, selector, rules, index) {
 	if("insertRule" in sheet) {
