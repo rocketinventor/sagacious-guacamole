@@ -3,7 +3,7 @@
 //set background
 document.body.style.backgroundColor = "#DADADA"; //set backup color (in case image doesn't load)
 //need to get this image hosted on a server that supports https to fix possible security issues...
-document.body.style.backgroundImage = "url('http://bradjasper.com/subtle-patterns-bookmarklet/patterns/squairy_light.png')"; //set actual image
+document.body.style.backgroundImage = "url('https://raw.githubusercontent.com/rocketinventor/sagacious-guacamole/master/squairy_light.png')"; //set actual image
 //ar c = document.getElementsByClassName("row part-content")[0].children;
 
 
