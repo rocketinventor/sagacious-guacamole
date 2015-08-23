@@ -14,6 +14,7 @@ document.body.style.backgroundImage = "url('https://raw.githubusercontent.com/ro
 var i; //create dummy variable i, duh.
 var c; //create var c ahead of time
 
+function grayContent () {
 //set all 'panels' (areas with the book text in Wattpad) to have a gray background
 c = document.getElementsByClassName("panel"); //get all panel elements and create variable
 for (i = 0; i < c.length; i++) { //apply to all elements
@@ -26,6 +27,17 @@ c = document.getElementsByClassName("mw-body"); //get the article content
 for (i = 0; i < c.length; i++) { //just in case there is more than one "mw-body", apply to all elements with that class rather than just [0]
         c[i].style.background = "#D0DAE3"; //set to gray
     }
+}
+
+grayContent();
+
+ var oldLocation = location.href;
+ setInterval(function() {
+      if(location.href != oldLocation) {
+           grayContent();
+           oldLocation = location.href;
+      }
+  }, 750); // check every 0.75 seconds
 
 //function that allows to add rules to CSS using js
 function addCSSRule(sheet, selector, rules, index) {
