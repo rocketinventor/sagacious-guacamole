@@ -1,9 +1,11 @@
 //need to add support for gray <article> before this part (otherwiise it will overide the <body> background).
-document.body.style.backgroundColor = "#DADADA"; //set background color
-document.body.style.backgroundImage = "url('http://bradjasper.com/subtle-patterns-bookmarklet/patterns/squairy_light.png')"; //set image background
-//need to get this image hosted on a server that supports https...
 
+//set background
+document.body.style.backgroundColor = "#DADADA"; //set backup color (in case image doesn't load)
+//need to get this image hosted on a server that supports https to fix possiblesecurity issues...
+document.body.style.backgroundImage = "url('http://bradjasper.com/subtle-patterns-bookmarklet/patterns/squairy_light.png')"; //set actual image
 //ar c = document.getElementsByClassName("row part-content")[0].children;
+
 
 //set all 'panels' (areas with the book text in Wattpad) to have a gray background
 //See comment at head of this page (relating to <Article> tags)
