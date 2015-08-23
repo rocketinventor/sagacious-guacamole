@@ -1,6 +1,19 @@
 document.body.style.backgroundColor = "#DADADA";
     document.body.style.backgroundImage = "url('https://bradjasper.com/subtle-patterns-bookmarklet/patterns/squairy_light.png')";
 
+
+function addCSSRule(sheet, selector, rules, index) {
+	if("insertRule" in sheet) {
+		sheet.insertRule(selector + "{" + rules + "}", index);
+	}
+	else if("addRule" in sheet) {
+		sheet.addRule(selector, rules, index);
+	}
+}
+
+// Use it!
+addCSSRule(document.styleSheets[0], "p", "color: #D7598B");
+
 function allowTextSelection() {
   var styles='*,p,div{user-select:text !important;-moz-user-select:text !important;-webkit-user-select:text !important;}';
   jQuery('head').append(jQuery('<style />').html(styles));
