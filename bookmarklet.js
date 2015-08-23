@@ -1,7 +1,19 @@
-document.body.style.backgroundColor = "#DADADA";
-    document.body.style.backgroundImage = "url('http://bradjasper.com/subtle-patterns-bookmarklet/patterns/squairy_light.png')";
+//need to add support for gray <article> before this part (otherwiise it will overide the <body> background).
+document.body.style.backgroundColor = "#DADADA"; //set background color
+document.body.style.backgroundImage = "url('http://bradjasper.com/subtle-patterns-bookmarklet/patterns/squairy_light.png')"; //set image background
+//need to get this image hosted on a server that supports https...
 
+//ar c = document.getElementsByClassName("row part-content")[0].children;
 
+//set all 'panels' (areas with the book text in Wattpad) to have a gray background
+//See comment at head of this page (relating to <Article> tags)
+var i; //create dummy variable i, duh.
+var c = document.getElementsByClassName("panel"); //get all panel elements and create variable
+for (i = 0; i < c.length; i++) { //apply to all elements
+        c[i].style.background = "#D0DAE3"; //set to gray
+    }
+  
+//function that allows to add rules to CSS using js
 function addCSSRule(sheet, selector, rules, index) {
 	if("insertRule" in sheet) {
 		sheet.insertRule(selector + "{" + rules + "}", index);
@@ -11,9 +23,11 @@ function addCSSRule(sheet, selector, rules, index) {
 	}
 }
 
-// Use it!
+//add css rule which makes all <p> dark pink/purple
+//Support for h1, h2, etc. will be added in the future
 addCSSRule(document.styleSheets[0], "p", "color: #D7598B");
 
+//actual code that attempts to allow text-selection when it is blocked
 function allowTextSelection() {
   var styles='*,p,div{user-select:text !important;-moz-user-select:text !important;-webkit-user-select:text !important;}';
   jQuery('head').append(jQuery('<style />').html(styles));
@@ -32,7 +46,8 @@ function allowTextSelection() {
     ).attr('ondragstart',allowNormal).size());
 }
 
-function allowTextSelectionWhenPossible() {
+//main anti-anti text-selection function
+function allowTextSelectionWhenPossible() { 
   window.console && console.log('allowTextSelectionWhenPossible');
   if (window.jQuery) {
     window.console && console.log('jQuery has now loaded');
@@ -43,6 +58,7 @@ function allowTextSelectionWhenPossible() {
   }
 }
 
+//make sure there's jquery
 if (window.jQuery) {
     window.console && console.log('jQuery exists; will use');
   allowTextSelection();
