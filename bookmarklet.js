@@ -1,5 +1,5 @@
 document.body.style.backgroundColor = "#DADADA";
-    document.body.style.backgroundImage = "url('https://bradjasper.com/subtle-patterns-bookmarklet/patterns/squairy_light.png')";
+    document.body.style.backgroundImage = "url('http://bradjasper.com/subtle-patterns-bookmarklet/patterns/squairy_light.png')";
 
 
 function addCSSRule(sheet, selector, rules, index) {
